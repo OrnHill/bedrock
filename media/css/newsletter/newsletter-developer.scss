@@ -1,0 +1,231 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../pebbles/includes/lib';
+
+.content {
+    @include clearfix;
+
+    @media #{$mq-tablet} {
+        width: $width-tablet;
+    }
+
+    @media #{$mq-desktop} {
+        width: $width-desktop;
+    }
+}
+
+.section-intro {
+    @include background-size(60px 60px, 200px 199px);
+    background-color: #0c99d5;
+    background-image: url('/media/img/newsletter/developer/grid.svg'),
+                      url('/media/img/newsletter/developer/heart.svg');
+    background-position: top left, top 30px center;
+    background-repeat: repeat, no-repeat;
+    height: 230px;
+    width: 100%;
+
+    @media #{$mq-phone-wide} {
+        @include background-size(80px 80px, 260px 258px);
+        height: 290px;
+    }
+
+    @media #{$mq-tablet} {
+        @include background-size(90px 90px, 320px 318px);
+        background-position: top left, top 20px center;
+        height: 340px;
+    }
+
+    @media #{$mq-tablet} and #{$mq-short} {
+        @include background-size(80px 80px, 260px 258px);
+        height: 290px;
+    }
+
+    .content {
+        position: relative;
+    }
+
+    #tabzilla {
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+}
+
+.section-subscribe {
+    background: #fff;
+    padding: 20px 0;
+
+    h1 {
+        @include font-size(32px);
+        color: #005189;
+        text-align: center;
+    }
+
+    h2 {
+        @include font-size(18px);
+        color: #005189;
+        font-weight: normal;
+        line-height: 1.3;
+        margin: 20px auto 40px;
+        max-width: 32em;
+        text-align: center;
+    }
+
+    .errorlist {
+        @include border-box;
+        background: #fff6dc;
+        border-radius: 4px;
+        margin: 0 auto 20px;
+        max-width: $width-phone;
+        padding: 20px;
+    }
+
+    @media #{$mq-tablet} {
+        h1 {
+            @include font-size(48px);
+        }
+        h2 {
+            @include font-size(20px);
+        }
+    }
+
+    @media #{$mq-desktop} {
+        h1 {
+            @include font-size(72px);
+        }
+        h2 {
+            @include font-size(24px);
+        }
+    }
+}
+
+#newsletter-form {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    margin: 0 auto;
+    max-width: $width-phone;
+    padding: 0;
+
+    input[type='text'],
+    input[type='email'],
+    select {
+        @include border-box;
+        @include font-size(16px);
+        padding: .75em 20px;
+        width: 100%;
+    }
+
+    input[type='text'],
+    input[type='email'] {
+        border: 2px solid #229ad3;
+        margin-bottom: 2px;
+
+        &:hover,
+        &:focus {
+            border-color: saturate(lighten(#229ad3, 5%), 10%);
+        }
+    }
+
+    .field {
+        margin: 0 0 20px;
+    }
+
+    .field-format label {
+        margin-right: 20px;
+    }
+
+    .privacy-check-label {
+        @include font-size(14px);
+        display: block;
+        padding-left: 30px;
+        position: relative;
+
+        input {
+            left: 0;
+            position: absolute;
+            top: .2em;
+        }
+    }
+
+    .form-submit {
+        margin-top: 40px;
+        text-align: center;
+
+        .form-button {
+            border-color: #229ad3;
+            color: #229ad3;
+        }
+
+        small {
+            @include font-size(12px);
+        }
+    }
+}
+
+#newsletter-form-thankyou {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    margin: 0 auto;
+    text-align: center;
+
+    h3 {
+        @include font-size(32px);
+        color: #005189;
+        margin-bottom: 20px;
+    }
+
+    p {
+        @include font-size(18px);
+        color: #005189;
+    }
+
+    @media #{$mq-tablet} {
+        h3 {
+            @include font-size(42px);
+        }
+
+        p {
+            @include font-size(22px);
+        }
+    }
+
+    @media #{$mq-desktop} {
+        h3 {
+            @include font-size(48px);
+        }
+
+        p {
+            @include font-size(28px);
+        }
+    }
+}
+
+// form details should always be visible
+.js #form-details {
+    display: block;
+}
+
+#colophon {
+    background: #d1d2d3;
+    color: #56565a;
+    margin: 0;
+
+    a {
+        color: $color-link-blue;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited {
+            color: darken($color-link-blue, 8%);
+        }
+    }
+
+    .logo a {
+        @include at2x('/media/img/sandstone/footer-mozilla-dark.png', 93px, 24px);
+    }
+}
